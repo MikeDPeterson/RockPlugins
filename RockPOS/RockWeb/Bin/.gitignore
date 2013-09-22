@@ -1,0 +1,12 @@
+#NOTE: RockWeb\bin repository should only include files that don't get copied into RockWeb\Bin as a result of building your plugin
+
+# for non-core RockWeb projects, ignore your project output, for example
+#  com.yourchurch.yourproject.dll
+#  com.yourchurch.yourproject.pbd
+RockPOS.*
+
+#  also ignore EntityFramework related stuff, since that comes from the nuget package in your project
+/EntityFramework.dll
+/EntityFramework.xml
+/EntityFramework.SqlServer.dll
+/EntityFramework.SqlServer.xml
