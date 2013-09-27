@@ -45,6 +45,8 @@ public class BundleConfig
             "~/Scripts/jquery.js",
             "~/Scripts/jquery-ui-1.10.0.custom.min.js",
             "~/Scripts/Kendo/kendo.web.min.js",
+            "~/Scripts/bootstrap-datepicker/bootstrap-datepicker.js",
+            "~/Scripts/bootstrap-timepicker/bootstrap-timepicker.js",
             "~/Scripts/bootstrap.min.js",
             "~/Scripts/bootbox.min.js",
             "~/Scripts/jquery.tinyscrollbar.js" ) );

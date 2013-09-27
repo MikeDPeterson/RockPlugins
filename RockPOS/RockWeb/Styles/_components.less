@@ -13,6 +13,7 @@
     10. Title - markup for styling header titles
     11. Notifications - additional styles to the Bootstrap notifications
     12. Labels - additional label defintions that extend Boostrap labels (eg label-campus)
+    13. Datepicker - styles for the date picker
 
 */
 
@@ -23,7 +24,7 @@
     position: relative;
 
     .scroll-container-picker { 
-        width: 360px; 
+        width: 355px; 
 
         .viewport { 
             width: 340px;  
@@ -35,12 +36,50 @@
         }
     }
 
+    h4 {
+        font-size: 14px;
+        font-weight: @font-weight-semibold;
+    }
+
+    .picker-select {
+        padding: 0;
+    }
+
+    .picker-menu {
+        width: 370px;
+        padding: 10px;
+
+        h4:first-child {
+            margin-top: 0;
+        }
+    }
+
     .picker-actions {
         background-color: @accent-light-color;
         padding: 10px;
         border-top: 1px solid @accent-color;
         border-radius: 0 0 @border-radius-base @border-radius-base;
-        margin-bottom: -5px;
+        margin: 10px -10px -10px -10px;
+    }
+
+    // details used for pickers like person picker to show the details of the selected item
+    .picker-select-item-details {
+        margin-left: 20px;
+
+        img {
+            float: left;
+        }
+
+        .contents {
+            float: left;
+            margin-left: 5px;
+        }
+    }
+
+    &.picker-geography {
+        .picker-menu {
+            width: 520px;
+        }
     }
 }
 
@@ -974,3 +1013,54 @@ div.tagsinput div
     background-color: @label-type;
 }
 
+
+// 13. Datepicker
+// -------------------------
+.datepicker {
+    padding: 10px;
+
+    table {
+        thead {
+            th.datepicker-switch {
+                text-align: center;
+            }
+
+            th.next {
+                text-align: right;
+            }
+        }
+
+        td.active {
+            background-color: @accent-color;
+            color: @accent-text-color;
+        }
+
+        td.day {
+            text-align: center;
+        }
+
+        td.old, td.new {
+            color: lighten(@text-color, 60%);
+        }
+
+        tfoot {
+            display: none;
+        }
+
+        td span.month {
+            margin-left: 2px;
+            padding: 2px;
+
+            &:hover {
+                background-color: @accent-color;
+                color: @accent-text-color;
+            }
+        }
+
+        td span.month:first-child {
+            margin-left: 0;
+        }
+    }
+
+    
+}

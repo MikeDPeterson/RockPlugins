@@ -7512,13 +7512,14 @@ td.visible-print {
     10. Title - markup for styling header titles
     11. Notifications - additional styles to the Bootstrap notifications
     12. Labels - additional label defintions that extend Boostrap labels (eg label-campus)
+    13. Datepicker - styles for the date picker
 
 */
 .picker {
   position: relative;
 }
 .picker .scroll-container-picker {
-  width: 360px;
+  width: 355px;
 }
 .picker .scroll-container-picker .viewport {
   width: 340px;
@@ -7527,12 +7528,39 @@ td.visible-print {
 .picker .scroll-container-picker .scrollbar {
   margin-top: 10px;
 }
+.picker h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.picker .picker-select {
+  padding: 0;
+}
+.picker .picker-menu {
+  width: 370px;
+  padding: 10px;
+}
+.picker .picker-menu h4:first-child {
+  margin-top: 0;
+}
 .picker .picker-actions {
   background-color: #e7ecf0;
   padding: 10px;
   border-top: 1px solid #d9e1e8;
   border-radius: 0 0 4px 4px;
-  margin-bottom: -5px;
+  margin: 10px -10px -10px -10px;
+}
+.picker .picker-select-item-details {
+  margin-left: 20px;
+}
+.picker .picker-select-item-details img {
+  float: left;
+}
+.picker .picker-select-item-details .contents {
+  float: left;
+  margin-left: 5px;
+}
+.picker.picker-geography .picker-menu {
+  width: 520px;
 }
 #dialog .scroll-container-picker {
   width: 360px;
@@ -8363,6 +8391,40 @@ div.tagsinput div {
 .label-type {
   background-color: #87a8ba;
 }
+.datepicker {
+  padding: 10px;
+}
+.datepicker table thead th.datepicker-switch {
+  text-align: center;
+}
+.datepicker table thead th.next {
+  text-align: right;
+}
+.datepicker table td.active {
+  background-color: #d9e1e8;
+  color: #515151;
+}
+.datepicker table td.day {
+  text-align: center;
+}
+.datepicker table td.old,
+.datepicker table td.new {
+  color: #eaeaea;
+}
+.datepicker table tfoot {
+  display: none;
+}
+.datepicker table td span.month {
+  margin-left: 2px;
+  padding: 2px;
+}
+.datepicker table td span.month:hover {
+  background-color: #d9e1e8;
+  color: #515151;
+}
+.datepicker table td span.month:first-child {
+  margin-left: 0;
+}
 /*
     Used to manage styles for specific blocks.
     
@@ -8370,6 +8432,8 @@ div.tagsinput div {
     2. HTML Content - block to edit HTML on a page
     3. Login - block to allow logins
     4. Notes - block to display, add, edit, delete notes
+    5. Add Family - block to add families to the database
+    6. Contributions - block add a contribution transaction
 
 */
 .sql-comand .panel {
@@ -8516,6 +8580,12 @@ span.cke_skin_kama {
 .panel-noteentry .panel-footer {
   background-color: #d9e1e8;
 }
+.table-familymembers .radio:first-child {
+  margin-top: 0;
+}
+.contribution-payment .tab-content {
+  margin-top: 12px;
+}
 /*
     Used to manage styles related to the CMS admin UI for on page editing
     
@@ -8546,7 +8616,7 @@ span.cke_skin_kama {
   top: 1px;
   left: 1px;
   width: 25px;
-  z-index: 40;
+  z-index: 11000;
   right: auto;
 }
 .zone-configuration-bar {
@@ -8580,7 +8650,7 @@ span.cke_skin_kama {
   position: absolute;
   top: 2px;
   width: 26px;
-  z-index: 40;
+  z-index: 11000;
 }
 .block-instance.outline {
   min-height: 36px;
@@ -8840,7 +8910,7 @@ td[align=center] {
   width: 720px;
 }
 .modal-body .scroll-container .viewport {
-  width: 690px;
+  width: 670px;
 }
 .modal-body.iframe {
   background: url("../assets/images/ajax-loading.png") center center no-repeat;
@@ -9106,6 +9176,7 @@ dl dd {
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
 }
 .scroll-container .scrollbar {
   position: relative;
@@ -10370,6 +10441,9 @@ fieldset .actions {
   padding: 2px 12px;
   border: 1px solid transparent;
 }
+.k-treeview .k-item {
+  padding: 0;
+}
 /* user registration styles */
 .not-me {
   margin-left: 21px;
@@ -10463,6 +10537,11 @@ a:hover i[class^="icon-"] {
 .navbar {
   position: static;
 }
+.modal-header .close {
+  color: #bbbbbb;
+  opacity: 1;
+  text-shadow: none;
+}
 .nav-pills > .active > a,
 .nav-pills > .active > a:hover {
   background-color: #779cb1;
@@ -10524,9 +10603,6 @@ header .nav a:hover .caret {
   background-repeat: repeat-x;
   filter: initial;
 }
-.pagenav .navbar-nav {
-  margin: 0;
-}
 .pagenav .nav {
   border-left: 1px solid #545454;
   width: 100%;
@@ -10540,8 +10616,6 @@ header .nav a:hover .caret {
   width: 12.5%;
   /* set to allow 8 nav items */
 
-  min-width: 120px;
-  float: left;
 }
 .pagenav .nav > li:last-child:after {
   /* add the final shadow to the last nav element */
@@ -10574,25 +10648,6 @@ header .nav a:hover .caret {
 .pagenav .dropdown-menu {
   left: -2px;
   width: 240px;
-}
-@media (max-width: 767px) {
-  .pagenav .nav {
-    border: 0;
-  }
-  .pagenav .nav > li {
-    width: 33%;
-    height: auto;
-    border: 0;
-  }
-  .pagenav .nav > li:last-child:after {
-    border-right: 0;
-  }
-  .pagenav .nav > li .dropdown-menu > li > a {
-    color: white;
-  }
-  .pagenav .nav > li .dropdown-menu > li.divider {
-    display: none;
-  }
 }
 .pagetitle {
   background-color: #c7cacd;
